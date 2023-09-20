@@ -21,7 +21,7 @@ export const options : NextAuthOptions = {
                 }
             },
             async authorize(credentials) {
-                const user = await prisma.user.findUnique({
+                const user : any= await prisma.user.findUnique({
                     where : {
                         email : credentials?.username?.toLowerCase()
                     }
