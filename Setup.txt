@@ -1,0 +1,31 @@
+Project Overview
+This project uses the following tech stack:
+
+Next.js - React framework for server-side rendering and building web applications
+SQLite - SQL database for storing application data
+Prisma - ORM for interacting with the SQLite database
+NextAuth - Authentication for Next.js using credentials provider
+Setting Up the Project
+Clone the repo: git clone https://github.com/khulalit/Calculator-with-login-save-feature
+Install dependencies: npm install
+
+Setup database: npx prisma migrate dev --name init
+Create .env file with database URL: DATABASE_URL="file:../calculatordb.db"
+Run development server: npm run dev
+The app will be running at http://localhost:3000
+
+Database Schema
+The SQLite database has the following schema managed by Prisma:
+
+Users table - Stores user accounts
+Calculation table - Stores calculation
+The schema is defined in prisma/schema.prisma and can be updated using prisma migrate.
+
+NextAuth Credentials Provider
+Authentication is handled by NextAuth.js using the Credentials Provider.
+
+Users sign in with email and password which are verified against the Users table in the database.
+
+Authentication state and tokens are managed by NextAuth automatically.
+
+Let me know if you need any help setting up or running the project!
