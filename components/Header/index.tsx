@@ -16,7 +16,7 @@ export default function Header() {
             {open ?
             session?.user ? <button className=" border-2 border-white rounded-lg px-2 mr-2" onClick={()=>{
                 signOut();
-            }}>Sign Out</button> : <Link href='/api/auth/signin' className='border-2 border-white rounded-lg px-2 mr-2'>Sign In</Link> : null}
+            }}>Sign Out</button> : <><Link href='/api/auth/signin' className='border-2 border-white rounded-lg px-2 mr-2'>Sign In</Link> <Link href='/signup' className='border-2 border-white rounded-lg px-2 mr-2'>Sign Up</Link></> : null}
             <button className='font-extrabold text-white' onClick={()=>setOpen(!open)}>
                 {open ? 'X' : '>'}
             </button>

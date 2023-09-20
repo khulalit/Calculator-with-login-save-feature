@@ -1,17 +1,18 @@
 'use client'
 import React from 'react';
+import { useRouter } from 'next/navigation';
 export default function SignupForm() {
-
+    const router = useRouter();
     const formRef = React.useRef<HTMLFormElement>(null)
 
-    function submitHanlder(e:any) {
+    async function submitHanlder(e:any) {
         e.preventDefault();
         const form = new FormData(formRef.current || undefined)
         const email = form.get('username');
         const password = form.get('password');
-        singup({email, password});
-
-        
+        const res = await singup({email, password});
+        if(res) router.replace('/api/auth/signin')
+        else alert('Not able to signup')
     }
 
     return (
@@ -58,13 +59,15 @@ async function singup(data : any){
                         body :JSON.stringify(data)
                     })
         const result  = await res.json();
-        if(result?.status === 'success')
-            return true;
+        if(result?.status === 'success'){
+            return true;    
+        }
         if(res.status === 409)
             alert('Email already exists');
         return false;
         
     } catch (error) {
         alert("Faild to send data")
+        return false;
     }  
 }

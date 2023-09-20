@@ -58,7 +58,7 @@ export default async function List() {
                 />
               </td>
               <td className="px-3 py-1 whitespace-nowrap">{row.name}</td>
-              <td className="px-3 py-1 whitespace-nowrap">{row.expression}</td>
+              <td className="px-3 py-1 flex flex-wrap">{row.expression}</td>
               <td className="px-3 py-1 whitespace-nowrap">{row.result}</td>
               <td className="px-3 py-1 whitespace-nowrap flex items-center gap-2">
                 <DeleteButtons id={row.id} expression={row.expression} />
